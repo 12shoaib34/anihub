@@ -1,0 +1,128 @@
+@use "../../assets/styles/variable" as *;
+
+.anihub-anime-screen {
+  display: flex;
+
+  .anime-ep-list {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    max-height: calc(100svh - 66px);
+    position: sticky;
+    top: 66px;
+    left: 0;
+
+    .anime-ep-list-header {
+      padding: 20px;
+      padding-bottom: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      input {
+        background-color: transparent;
+        border: none;
+        height: 40px;
+        width: 100%;
+        outline: none;
+        border-radius: $rounded-sm;
+        padding: 0 12px;
+        color: $primary-color;
+        box-shadow: 0 0 0 2px $primary-color;
+
+        &::-webkit-outer-spin-button,
+        &::-webkit-inner-spin-button {
+          -webkit-appearance: none;
+          margin: 0;
+        }
+      }
+    }
+
+    .anime-ep-list-btns {
+      padding: 20px;
+      padding-top: 10px;
+      overflow-y: auto;
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 10px;
+
+      &::-webkit-scrollbar {
+        display: none;
+      }
+
+      .episode-btn {
+        cursor: pointer;
+        border: none;
+        background-color: #212121;
+        color: #959595;
+        border-radius: $rounded-sm;
+        height: 40px;
+        width: 100%;
+        font-size: 16px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        &.filer {
+          opacity: 0.4;
+          color: $primary-color;
+        }
+
+        &.active {
+          background-color: $primary-color;
+          color: #000;
+        }
+      }
+    }
+  }
+
+  .anime-player {
+    flex: 1;
+    padding: 20px 0;
+    position: relative;
+    height: 100%;
+    overflow-y: auto;
+
+    .anihub-video-loader {
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      background-color: $body-color-dark;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      top: 0;
+      left: 0;
+      z-index: 10;
+
+      svg {
+        animation: rotate 1s linear infinite;
+        font-size: 100px;
+        color: #fff;
+        opacity: 0.5;
+        @keyframes rotate {
+          from {
+            transform: rotate(0deg);
+          }
+          to {
+            transform: rotate(360deg);
+          }
+        }
+      }
+    }
+
+    > h1 {
+      color: $primary-color;
+      font-weight: 600;
+      text-transform: uppercase;
+    }
+
+    > p {
+      font-size: 12px;
+      margin-top: 20px;
+      color: #959595;
+    }
+  }
+}

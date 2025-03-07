@@ -1,0 +1,40 @@
+@use "../../assets/styles/variable" as *;
+.anihub-home {
+  padding: 20px;
+  .anihub-anime-wrapper {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+
+    .anihub-anime-card {
+      width: 100%;
+      border: solid 1px $border-color-dark;
+      border-radius: $rounded-md;
+      overflow: hidden;
+      cursor: pointer;
+      transition: $duration-fast;
+      &:hover {
+        transform: scale(1.05);
+      }
+
+      img {
+        width: 100%;
+      }
+
+      .anihub-anime-card-content {
+        padding: 10px;
+
+        h1 {
+          font-size: 22px;
+        }
+
+        p {
+          display: -webkit-box;
+          -webkit-box-orient: vertical;
+          -webkit-line-clamp: 2;
+          overflow: hidden;
+        }
+      }
+    }
+  }
+}

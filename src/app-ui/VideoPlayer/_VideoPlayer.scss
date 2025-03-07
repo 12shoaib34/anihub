@@ -1,0 +1,24 @@
+@use "../../assets/styles/variable" as *;
+
+.anihub-video-container {
+  position: relative;
+  width: 100%;
+
+  margin: auto;
+  border-radius: $rounded-sm;
+  overflow: hidden;
+
+  &.hover {
+    .anihub-video-controls {
+      opacity: 1;
+    }
+  }
+
+  video {
+    width: 100%;
+    min-height: 525px;
+    position: relative;
+    z-index: 1;
+    outline: none;
+  }
+}
