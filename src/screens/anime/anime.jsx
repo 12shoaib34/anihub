@@ -39,16 +39,7 @@ const Anime = () => {
 
       if (data?.success && data?.data?.sources?.length > 0) {
         setVideoUrl(data.data.sources[0].url);
-
-        const newTracks =
-          data.data.tracks?.map((track) => ({
-            src: track.file,
-            kind: track.kind || "subtitles",
-            label: track.kind === "subtitles" ? `Subtitle (${track.language || "EN"})` : track.kind,
-            srclang: track.language || "en",
-          })) || [];
-
-        setTracks(newTracks);
+        setTracks(data.data.tracks);
       } else {
         setError("Video not available");
       }
