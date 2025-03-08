@@ -23,7 +23,7 @@ const AnimeCard = (props) => {
   const navigate = useNavigate();
 
   const onNavigate = () => {
-    navigate(`anime?animeId=${data._id}&ep=1`);
+    navigate(`anime?animeId=${data._id}&ep=1&cat=dub`);
   };
 
   return (

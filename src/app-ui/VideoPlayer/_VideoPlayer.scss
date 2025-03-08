@@ -3,16 +3,9 @@
 .anihub-video-container {
   position: relative;
   width: 100%;
-
   margin: auto;
   border-radius: $rounded-sm;
   overflow: hidden;
-
-  &.hover {
-    .anihub-video-controls {
-      opacity: 1;
-    }
-  }
 
   video {
     width: 100%;
@@ -20,5 +13,169 @@
     position: relative;
     z-index: 1;
     outline: none;
+    background-color: black;
+    object-fit: cover;
+  }
+
+  .anihub-video-player {
+    position: relative;
+    z-index: 2;
+
+    .anihub-buffer-loading {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: transparent;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 10;
+
+      svg {
+        animation: rotate 1s linear infinite;
+        font-size: 100px;
+        color: #fff;
+        opacity: 0.5;
+        @keyframes rotate {
+          from {
+            transform: rotate(0deg);
+          }
+          to {
+            transform: rotate(360deg);
+          }
+        }
+      }
+    }
+
+    .anihub-video-controller {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      z-index: 20;
+      padding: 10px;
+      background-image: linear-gradient(180deg, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 1));
+
+      button {
+        color: #ffffff;
+        border: none;
+        background-color: transparent;
+        border-radius: $rounded-full;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 40px;
+        width: 40px;
+        font-size: 30px;
+        outline: none;
+
+        &:focus {
+          background-color: #00000048;
+        }
+
+        &:hover {
+          background-color: #00000048;
+        }
+
+        &:active {
+          background-color: transparent;
+        }
+      }
+
+      .anihub-progress-bar-wrapper {
+        position: absolute;
+        top: 0;
+        left: 0;
+        padding: 0 10px;
+        height: 4px;
+        width: 100%;
+
+        .anihub-progress-bar {
+          background-color: $progress-bar-unfilled;
+          height: 100%;
+          width: 100%;
+          cursor: pointer;
+          position: relative;
+
+          .anihub-progress-loaded {
+            position: absolute;
+            top: 0;
+            left: 0;
+            background-color: $progress-bar-buffered;
+            height: 100%;
+            transition: $duration-fast;
+          }
+
+          .anihub-progress-handle {
+            position: absolute;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            background-color: $primary-color;
+            height: 15px;
+            width: 15px;
+            border-radius: $rounded-full;
+            display: block;
+            cursor: pointer;
+            z-index: 1;
+
+            &:hover {
+              box-shadow: 0 0 2px 2px $primary-color;
+            }
+          }
+
+          .anihub-progress-played {
+            position: absolute;
+            top: 0;
+            left: 0;
+            background-color: $progress-bar-filled;
+            transition: $duration-fast;
+            height: 100%;
+          }
+        }
+      }
+
+      .anihub-video-controller-buttons {
+        display: flex;
+        align-items: flex-end;
+
+        .anihub-audio-slider {
+          display: flex;
+          align-items: center;
+
+          input[type="range"] {
+            border-radius: 8px;
+            height: 4px;
+            width: 100px;
+            outline: none;
+            -webkit-appearance: none;
+            background: $progress-bar-unfilled;
+            cursor: pointer;
+          }
+
+          input[type="range"]::-webkit-slider-thumb {
+            width: 6px;
+            -webkit-appearance: none;
+            height: 12px;
+            background: $primary-color;
+            border-radius: 2px;
+          }
+
+          > span {
+            color: $primary-color;
+            font-size: 14px;
+            margin-left: 20px;
+            display: block;
+          }
+        }
+
+        .anihub-video-controller-controls {
+          display: flex;
+          align-items: center;
+          width: max-content;
+          margin-left: auto;
+        }
+      }
+    }
   }
 }

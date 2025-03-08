@@ -1,7 +1,6 @@
 $body-color-dark: #161616;
 $text-color-dark: #fff;
 $border-color-dark: #424242;
-
 $primary-color: #ffa500;
 
 // border-radius
@@ -18,3 +17,9 @@ $duration-fast: 0.2s;
 $duration-medium: 0.4s;
 $duration-slow: 0.6s;
 $duration-slowest: 0.8s;
+
+// video player
+
+$progress-bar-unfilled: #ffffff45;
+$progress-bar-filled: $primary-color;
+$progress-bar-buffered: #ffffff70;
